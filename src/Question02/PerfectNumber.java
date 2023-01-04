@@ -3,6 +3,7 @@ package Question02;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+import java.util.stream.LongStream;
 
 public class PerfectNumber {
  /* Perfect Number (Mukemmel sayi)
@@ -32,5 +33,25 @@ public class PerfectNumber {
         return IntStream.range(1, n).filter(d -> n % d == 0);
     }
 
+//aşağıdaki gibi farklı yöntemlerle çözüm şekilleri de mevcuttur
+
+
+
+    public static boolean reduceIsPerfect(long num) {
+        return LongStream.rangeClosed(2, num / 2)
+                .reduce(1, (sum, test) -> num % test == 0 ? sum + test : sum) == num;
+    }
+    public static boolean parallelFilteredIsPerfect(long num) {
+        return LongStream.rangeClosed(1, num / 2)
+                // make this a parallel stream so we can find the whole divisors more quickly (ideally)
+                .parallel()
+                // filter out any non-whole divisors
+                .filter(test -> num % test == 0)
+                .sum() == num;
+    }
+    public static boolean reduceSqrtIsPerfect(long num) {
+        return LongStream.rangeClosed(2, (long) Math.sqrt(num))
+                .reduce(1, (sum, test) -> num % test == 0 ? sum + test + (num / test) : sum) == num;
+    }
 
 }
