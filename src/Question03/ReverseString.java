@@ -26,8 +26,16 @@ public class ReverseString {
 
     }
 
+    private static void terstenYazdirma(String str) {
+        char[] kelime = str.toCharArray();
+        System.out.print("method kullanarak : ");
+        for (int i = str.length() - 1; i >= 0; i--) {
+
+            System.out.print(kelime[i]);
+        }
 
 
     }
 
 
+}
