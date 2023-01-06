@@ -11,7 +11,23 @@ public class ReverseString {
 
         System.out.println("StringBuilder ile tersten : " + sb.reverse());
 
+        //2.Yol
+        System.out.print("2.Yol : ");
+        for (int i = str.length() - 1; i >= 0; i--) {
+
+            System.out.print(str.charAt(i));
+
+        }
+
+
+        System.out.println("***");
+
+        terstenYazdirma(str);
 
     }
 
-}
+
+
+    }
+
+
