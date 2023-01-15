@@ -12,5 +12,13 @@ public class Swap {
         double n2 = scan.nextDouble();
 
         System.out.println("Before swapping: " + n1 + " - " + n2);
+
+
+        //1.Way: Use 3rd variable
+        double temp = n1;
+        n1 = n2;
+        n2 = temp;
+        System.out.println("After swapping: " + n1 + " - " + n2);
+
     }
 }
